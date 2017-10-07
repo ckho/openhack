@@ -56,9 +56,7 @@ class CompaniesController < ApplicationController
 
   def vote
 	set_company
-	logger.debug(@company.number_of_votes)
 	new_params = rate_param
-	logger.debug(rate_param)
 	new_params[:number_of_votes] = @company.number_of_votes+1
 	new_rating = (@company.rating * @company.number_of_votes + new_params[:rating].to_i) / (new_params[:number_of_votes].to_i)
 	new_params[:rating] = new_rating
