@@ -3,7 +3,7 @@
 <%= @company.name %>
 <%= @company.description %>
 <%= @company.logo %>
-<%= @company.rating %>
+<%= @company.rating.round(2) %>
 <%= @company.number_of_votes %>
 
 <%= render 'vote' %>
