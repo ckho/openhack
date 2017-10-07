@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :companies
+  patch 'companies/:id/vote', to: 'companies#vote', as: 'vote'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_scope :user do

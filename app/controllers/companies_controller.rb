@@ -54,6 +54,26 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def vote
+	set_company
+	logger.debug(@company.number_of_votes)
+	new_params = rate_param
+	logger.debug(rate_param)
+	new_params[:number_of_votes] = @company.number_of_votes+1
+	new_rating = (@company.rating * @company.number_of_votes + new_params[:rating].to_i) / (new_params[:number_of_votes].to_i)
+	new_params[:rating] = new_rating
+
+	if @company.update(new_params)
+		redirect_to @company
+		#format.html { redirect_to @company, notice: 'Company was successfully updated.' }
+		#format.json { render :show, status: :ok, location: @company }
+	else
+		redirect_to edit_company_path
+		#format.html { render :edit }
+		#format.json { render json: @company.errors, status: :unprocessable_entity }
+	end
+  end
+
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
@@ -73,6 +93,10 @@ class CompaniesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       # params.fetch(:company, {})
-		params.require(:company).permit(:name, :description, :logo)
+		params.require(:company).permit(:name, :description, :logo, :rating)
     end
+
+	def rate_param
+		params.require(:company).permit(:rating)
+	end
 end

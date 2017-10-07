@@ -4,6 +4,9 @@
 <%= @company.description %>
 <%= @company.logo %>
 <%= @company.rating %>
+<%= @company.number_of_votes %>
+
+<%= render 'vote' %>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>

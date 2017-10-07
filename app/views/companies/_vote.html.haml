@@ -1,0 +1,3 @@
+= simple_form_for @company, :url => vote_path do |c|
+  = c.input :rating, input_html: { min: '0', max: '5' }
+  = c.submit 'rate'
