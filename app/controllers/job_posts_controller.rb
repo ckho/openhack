@@ -40,7 +40,7 @@ class JobPostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:job_post).permit(:job, :poster, :content, :company_id)
+		params.require(:job_post).permit(:job, :content, :company_id)
 	end
 
 	def destroy
