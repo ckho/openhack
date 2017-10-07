@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<%= @company.name %>
+<%= @company.description %>
+<%= @company.logo %>
+<%= @company.rating %>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
