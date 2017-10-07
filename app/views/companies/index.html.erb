@@ -1,26 +1,19 @@
+<h2>Companies</h2>
 <p id="notice"><%= notice %></p>
 
-<h1>Companies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-	  <% @companies.each do |company| %>
-      <tr>
-        <td><%= company.name %></td>
-        <td><%= link_to 'Show', company %></td>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
-        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
+<ul class="messages">
+  <% @companies.each do |company| %>
+  <li>
+      <p>
+          <strong> <%= company.name %> </strong>
+          <small>
+            <%= link_to 'View', company %>
+          </small>
+      </p>
+      <p>
+        <small> Average rating <%= company.rating %> </small>
+        <small> | <%= company.number_of_votes %> votes </small>
+      </p>
+  </li>
+  <% end %>
+</ul>
