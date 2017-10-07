@@ -1,18 +1,9 @@
-!!! 5
-%html
-  %head
-    %title SyntaxDenied | OpenHack
-    = stylesheet_link_tag 'application'
-  %body
-    %h1 SyntaxDenied
-    - @posts.each do |post|
-      %h2
-        = post.job
-      %p
-        = post.poster
-        %br
-        = link_to "View Details", post
-      %hr
-    = link_to "Post New Job", new_job_post_path
+- @posts.each do |post|
+  %h2
+    = post.job
+  %p
+    = post.poster
     %br
+    = link_to "View Details", post
     = link_to "New Company", new_company_path
+  %hr
