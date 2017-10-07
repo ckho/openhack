@@ -2,6 +2,11 @@
 
 - @posts.each do |post|
   %h2
-    = post.title
+    = post.job
   %p
     = post.poster
+  = link_to "Show", post
+
+%br
+
+= link_to "New JobPost", new_job_post_path

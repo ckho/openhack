@@ -1,0 +1,16 @@
+%h1 Show
+
+%h2
+  = @post.job
+%p
+  Poster: 
+  = @post.poster
+
+%p Job description:
+= @post.content
+
+%br
+
+= link_to "Home", root_path
+= link_to "Edit", edit_job_post_path
+= link_to "Delete", job_post_path, :method => :delete, data: {:confirm => "Are you sure?"}
