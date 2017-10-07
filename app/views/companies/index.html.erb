@@ -11,7 +11,7 @@
           </small>
       </p>
       <p>
-        <small> Average rating <%= company.rating %> </small>
+        <small> Average rating <%= company.rating.round(2) %> </small>
         <small> | <%= company.number_of_votes %> votes </small>
       </p>
   </li>
