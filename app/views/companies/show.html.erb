@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2>
+<%= image_tag("cc.png", width: '75px') %>
 <%= @company.name %>
 </h2>
 
@@ -9,9 +10,6 @@
 
 <p>
 <%= @company.description %>
-</p>
-<p>
-<%= @company.logo %>
 </p>
 <p>
 <%= render 'vote' %>
