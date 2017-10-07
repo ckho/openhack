@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<h2>
 <%= @company.name %>
-<%= @company.description %>
-<%= @company.logo %>
-<%= @company.rating.round(2) %>
-<%= @company.number_of_votes %>
+</h2>
 
+<small> Average rating <%= @company.rating %> </small>
+<small> | <%= @company.number_of_votes %> votes </small>
+
+<p>
+<%= @company.description %>
+</p>
+<p>
+<%= @company.logo %>
+</p>
+<p>
 <%= render 'vote' %>
+</p>
 
 <%= link_to 'New Job', new_company_job_post_path(@company) %>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<%= link_to 'Delete', @company, :method => :delete, data: { :confirm => 'Are you sure?' } %>
