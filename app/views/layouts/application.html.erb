@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Openhack</title>
+    <title>Partner</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <div class='page'>
+      <h1>Partner</h1>
+      <div class='navigation'>
+          <a href='/'>home</a>
+          |
+          <a href='#signup'>sign up</a>
+          |
+          <a href='#signin'>sign in</a>
+          |
+          <a href="/job_posts/new">new job</a>
+      </div>
+      <div class='body'>
+          <%= yield %>
+      </div>
+      <div class='footer'>Partner - An initiative by SyntaxDenied</div>
+    </div>
   </body>
 </html>
