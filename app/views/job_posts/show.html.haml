@@ -7,5 +7,5 @@
 %p
   = @post.content
 
-= link_to "Edit", edit_job_post_path
-= link_to "Delete", job_post_path, :method => :delete, data: {:confirm => "Are you sure?"}
+= link_to "Edit", edit_company_job_post_path(@company)
+= link_to "Delete", company_job_post_path, :method => :delete, data: {:confirm => "Are you sure?"}

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :companies
+  resources :companies do
+	resources :job_posts
+  end
+
   patch 'companies/:id/vote', to: 'companies#vote', as: 'vote'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
@@ -11,7 +14,6 @@ Rails.application.routes.draw do
 
   # root 'home#index'
 
-	resources :job_posts
 	root 'job_posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -6,5 +6,4 @@
           = post.job
         %small
           = post.poster
-        = link_to "Read More", post
-= link_to "New Company", new_company_path
+        = link_to "Show", company_job_post_path(post.company_id, post.id)

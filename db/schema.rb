@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171007172510) do
+ActiveRecord::Schema.define(version: 20171007192243) do
 
   create_table "companies", force: :cascade do |t|
     t.datetime "created_at",      null: false
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20171007172510) do
     t.integer  "number_of_votes"
     t.string   "logo"
     t.float    "rating"
+    t.integer  "job_post_id"
+    t.index ["job_post_id"], name: "index_companies_on_job_post_id"
   end
 
   create_table "job_posts", force: :cascade do |t|
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(version: 20171007172510) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_job_posts_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|

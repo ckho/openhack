@@ -5,46 +5,57 @@ class JobPostsController < ApplicationController
 
 	def new
 		@post = JobPost.new
+		set_company
 	end
 
 	def edit
-		find_post_by_id
+		set_post
+		set_company
 	end
 
 	def update
-		find_post_by_id
+		set_company
+		set_post
 		if @post.update(post_params)
-			redirect_to @post
+			redirect_to [@company, @post]
 		else
-			redirect_to edit_job_post_path
+			redirect_to edit_company_job_post_path
 		end
 	end
 	
 	def show
-		find_post_by_id
+		set_company
+		set_post
 	end
 
 	def create
-		@post = JobPost.create(post_params)
+		set_company
+		@post = @company.job_posts.create(post_params)
 
 		if @post.save
-			redirect_to @post
+			redirect_to [@company, @post]
 		else
-			redirect_to new_post_path
+			redirect_to new_company_post_path
 		end
 	end
 
-	def find_post_by_id
-		@post = JobPost.find(params[:id])
-	end
-
 	def post_params
-		params.require(:job_post).permit(:job, :poster, :content)
+		params.require(:job_post).permit(:job, :poster, :content, :company_id)
 	end
 
 	def destroy
-		find_post_by_id
+		set_company
+		set_post
 		@post.destroy
-		redirect_to root_path
+		redirect_to @company
 	end
+
+	private
+		def set_company
+			@company = Company.find(params[:company_id])
+		end
+
+		def set_post
+			@post = JobPost.find(params[:id])
+		end
 end
