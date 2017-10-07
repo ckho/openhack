@@ -21,7 +21,7 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-    background: #105751;
+    background: #4a708b;
     border: 1px solid #073B36;
     padding: 1px 3px;
     font-family: 'DejaVu Sans', sans-serif;
@@ -80,3 +80,35 @@ div.page div.footer {
     padding: 5px 10px;
     font-size: 12px;
 }
+
+
+div.page ul.messages {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.page ul.messages li {
+    margin: 10px 0;
+    padding: 5px;
+    background: #F0FAF9;
+    border: 1px solid #DBF3F1;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    min-height: 24px;
+}
+
+div.page ul.messages p {
+    margin: 0;
+}
+
+div.page ul.messages li img {
+    float: left;
+    padding: 0 10px 0 0;
+}
+
+div.page ul.messages li small {
+    font-size: 0.9em;
+    color: #888;
+}
+
